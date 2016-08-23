@@ -1,0 +1,23 @@
+{
+  "name": "tools.clifflu.net",
+  "version": "0.0.0",
+  "description": "API-based tools powering tools.clifflu.net, built with Serverless Framework v1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clifflu/tools.clifflu.net.git"
+  },
+  "author": "Cliff Chao-kuan Lu <clifflu@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/clifflu/tools.clifflu.net/issues"
+  },
+  "homepage": "https://github.com/clifflu/tools.clifflu.net#readme",
+  "dependencies": {
+    "aws-sdk": "^2.5.2",
+    "request": "^2.74.0"
+  }
+}
