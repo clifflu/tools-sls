@@ -79,9 +79,9 @@ function harvestRegion(region) {
   const ec2 = new AWS.EC2({region})
 
   const nameFilters = [
-    {region, family: 'ecs_hvm64', nf: 'amzn-ami-*-amazon-ecs-optimized'},
-    {region, family: 'ec2_hvm64', nf: 'amzn-ami-*-gp2'},
-    {region, family: 'nat_hvm64', nf: 'amzn-ami-vpc-nat-*'},
+    {region, family: 'EcsHvm64', nf: 'amzn-ami-*-amazon-ecs-optimized'},
+    {region, family: 'Ec2Hvm64', nf: 'amzn-ami-*-gp2'},
+    {region, family: 'NatHvm64', nf: 'amzn-ami-vpc-nat-*'},
   ]
 
   log(`reading from ${region}`, 3)
