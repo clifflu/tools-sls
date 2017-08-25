@@ -6,7 +6,7 @@ provider:
   runtime: nodejs6.10
   stage: prod
   region: us-west-2
-  memorySize: 256
+  memorySize: 128
   timeout: 5
   iamRoleStatements:
     - Effect: Allow
@@ -18,6 +18,11 @@ provider:
 functions:
   ami:
     handler: handler.ami
+    timeout: 60
+    events:
+      - http:
+          path: ami
+          method: get
   hello:
     handler: handler.hello
     events:
