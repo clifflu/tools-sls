@@ -1,5 +1,8 @@
 service: tools-clifflu-net
 
+custom:
+  config: ${file(./config/main.yml)}
+
 provider:
   name: aws
   deploymentBucket: net.clifflu.sls-deploy.${self:provider.region}
@@ -14,15 +17,22 @@ provider:
         - ec2:describeImages
         - ec2:describeRegions
       Resource: "*"
+    - Effect: Allow
+      Action:
+        - s3:getObject
+        - s3:putObject
+      Resource: arn:aws:s3:::${self:custom.config.cache.bucket}/${self:custom.config.cache.prefix}/*
 
 functions:
   ami:
     handler: handler.ami
-    timeout: 60
     events:
       - http:
           path: ami
           method: get
+  amiUpdate:
+    handler: handler.amiUpdate
+    timeout: 120
   hello:
     handler: handler.hello
     events:

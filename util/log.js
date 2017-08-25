@@ -1,12 +1,9 @@
 const extend = require('extend')
 
+const conf = require('./config')
+
 const _options = {
   defaultLevel: 5,
-  cutoffLevel: 4,
-}
-
-if (process.env.LOG_LEVEL !== undefined) {
-  _options.cutoffLevel = process.env.LOG_LEVEL
 }
 
 function getConfig() {
@@ -22,7 +19,7 @@ function log(payload, level) {
     ? _options.defaultLevel
     : level
 
-  if (level >= _options.cutoffLevel) {
+  if (level >= conf.get('LOG_LEVEL')) {
     //console.log(extend({}, payload, {level}))
     console.log(`[${level}:${payload.loc}] ${payload.msg}`)
   }

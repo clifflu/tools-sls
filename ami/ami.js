@@ -1,6 +1,9 @@
 'use strict'
+
 const AWS = require('aws-sdk')
 const extend = require('extend')
+
+const config = require('../util/config')
 
 const prepareLogger = require('../util/log').prepareLogger
 
@@ -9,9 +12,9 @@ const _cache = {}
 AWS.config.update({region: process.env.AWS_REGION || 'us-west-2'})
 
 function findRegions() {
-  if (process.env.REGIONS) {
+  if (config.get('REGIONS')) {
     return Promise.resolve(
-      process.env.REGIONS.split(',').map(s => s.trim())
+      config.get('REGIONS').split(',').map(s => s.trim())
     )
   }
 []
