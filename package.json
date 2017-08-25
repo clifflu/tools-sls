@@ -18,6 +18,7 @@
   "homepage": "https://github.com/clifflu/tools.clifflu.net#readme",
   "dependencies": {
     "aws-sdk": "^2.103.0",
+    "extend": "^3.0.1",
     "request": "^2.81.0",
     "requests": "^0.2.2"
   }

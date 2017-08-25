@@ -16,6 +16,8 @@ provider:
       Resource: "*"
 
 functions:
+  ami:
+    handler: handler.ami
   hello:
     handler: handler.hello
     events:
@@ -28,4 +30,3 @@ functions:
       - http:
           path: ip
           method: get
-
