@@ -32,7 +32,10 @@ functions:
           method: get
   amiUpdate:
     handler: handler.amiUpdate
-    timeout: 120
+    timeout: 180
+    events:
+      - schedule:
+          rate: cron(7 0 * * ? *)
   hello:
     handler: handler.hello
     events:
