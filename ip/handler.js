@@ -2,8 +2,12 @@
 
 function handler (evt, ctx, cb) {
   try {
-    cb(null, {sourceIp: getIp(evt)})
+    cb(null, {
+        statusCode: 200,
+        body: JSON.stringify({sourceIp: getIp(evt)})
+    })
   } catch (ex) {
+      console.error(ex)
     cb('unknown sourceIp')
   }
 }
@@ -18,7 +22,7 @@ function handler (evt, ctx, cb) {
  */
 function getIp (evt) {
   const candidates = evt.headers['X-Forwarded-For'].split(', ')
-  const probe = evt.identity.sourceIp
+  const probe = evt.requestContext.identity.sourceIp
   var idx
 
   /**

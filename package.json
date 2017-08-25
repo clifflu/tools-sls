@@ -1,7 +1,7 @@
 {
   "name": "tools.clifflu.net",
   "version": "0.0.0",
-  "description": "API-based tools powering tools.clifflu.net, built with Serverless Framework v1.0.0",
+  "description": "API helpers at tools.clifflu.net",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/clifflu/tools.clifflu.net#readme",
   "dependencies": {
-    "aws-sdk": "^2.5.2",
-    "request": "^2.74.0"
+    "aws-sdk": "^2.103.0",
+    "request": "^2.81.0",
+    "requests": "^0.2.2"
   }
 }
