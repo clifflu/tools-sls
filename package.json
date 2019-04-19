@@ -4,8 +4,12 @@
   "description": "API behind tools.clifflu.net",
   "main": "handler.js",
   "scripts": {
-    "test": "npm run jest"
+    "test": "jest",
+    "lint": "eslint --ext .js ."
   },
+  "pre-commit": [
+    "lint"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/clifflu/tools.clifflu.net.git"
@@ -29,6 +33,13 @@
     "yamljs": "^0.2.8"
   },
   "devDependencies": {
-    "jest": "^24.7.1"
+    "eslint": "^5.16.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "jest": "^24.7.1",
+    "pre-commit": "^1.2.2"
   }
 }
