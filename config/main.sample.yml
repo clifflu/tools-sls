@@ -7,7 +7,7 @@ cache:
 gasmon:
   timezone: Asia/Taipei
   cache:
-    hk: gasmon
+    pk: gasmon
   pushover:
     userKey: [PUSHOVER.USER_KEY]
     appKey: [PUSHOVER.APP_KEY]
