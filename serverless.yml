@@ -1,14 +1,16 @@
 service: tools-clifflu-net
 
 custom:
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'us-west-2'}
   config: ${file(./config/main.yml)}
 
 provider:
   name: aws
-  deploymentBucket: net.clifflu.sls-deploy.${self:provider.region}
+  deploymentBucket: net.clifflu.sls-deploy.${self:custom.region}
   runtime: nodejs8.10
-  stage: prod
-  region: us-west-2
+  stage: ${self:custom.stage}
+  region: ${self:custom.region}
   memorySize: 128
   timeout: 5
   iamRoleStatements:
@@ -21,7 +23,17 @@ provider:
       Action:
         - s3:getObject
         - s3:putObject
-      Resource: arn:aws:s3:::${self:custom.config.cache.bucket}/${self:custom.config.cache.prefix}/*
+      Resource: arn:aws:s3:::${self:custom.config.cache.s3.bucket}/${self:custom.config.cache.s3.prefix}/*
+    - Effect: Allow
+      Action:
+        - 'dynamodb:GetItem'
+        - 'dynamodb:PutItem'
+      Resource:
+        - Fn::Join:
+          - ':'
+          - - arn:aws:dynamodb:${self:custom.region}
+            - !Ref AWS::AccountId
+            - ${self:custom.config.cache.ddb.table}
 
 functions:
   ami:
@@ -30,18 +42,32 @@ functions:
       - http:
           path: ami
           method: get
+
   amiUpdate:
     handler: handler.amiUpdate
     timeout: 180
     events:
       - schedule:
           rate: cron(7 0 * * ? *)
+
   hello:
     handler: handler.hello
     events:
       - http:
           path: hello
           method: get
+
+  gasmon:
+    handler: handler.gasmon
+    events:
+      - schedule: "cron(15 2-6 ? * SUN *)"
+    environment:
+      TZ: ${self:custom.config.timezone}
+      gasmon_stateTable_name: ${self:custom.config.cache.ddb.table}
+      gasmon_stateTable_key: ${self:custom.config.gasmon.cache.hk}
+      cred_pushover_userKey: ${self:custom.config.gasmon.pushover.userKey}
+      cred_pushover_appKey: ${self:custom.config.gasmon.pushover.appKey}
+
   ip:
     handler: handler.ip
     events:

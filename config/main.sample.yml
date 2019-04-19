@@ -1,3 +1,13 @@
 cache:
-  bucket: YOUR_BUCKET_NAME
-  prefix: YOUR_CACHE_PREFIX_WITHOUT_LEADING_TRAILING_SLASHES
+  s3:
+    bucket: YOUR_BUCKET_NAME
+    prefix: YOUR_CACHE_PREFIX_WITHOUT_LEADING_TRAILING_SLASHES
+  ddb:
+    table: [TABLE_NAME]
+gasmon:
+  timezone: Asia/Taipei
+  cache:
+    hk: gasmon
+  pushover:
+    userKey: [PUSHOVER.USER_KEY]
+    appKey: [PUSHOVER.APP_KEY]

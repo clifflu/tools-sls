@@ -1,10 +1,11 @@
 'use strict'
 
-const ami = require('./ami/handler')
+const ami = require('./lib/ami/handler')
 
 module.exports = {
   ami: ami.download,
   amiUpdate: ami.update,
-  hello: require('./hello/handler'),
-  ip: require('./ip/handler')
+  hello: require('./lib/hello/handler'),
+  ip: require('./lib/ip/handler'), 
+  gasmon: require('./lib/gasmon').handler,
 }

@@ -1,10 +1,10 @@
 {
   "name": "tools.clifflu.net",
   "version": "0.0.0",
-  "description": "API helpers at tools.clifflu.net",
-  "main": "index.js",
+  "description": "API behind tools.clifflu.net",
+  "main": "handler.js",
   "scripts": {
-    "test": "mocha"
+    "test": "npm run jest"
   },
   "repository": {
     "type": "git",
@@ -17,11 +17,18 @@
   },
   "homepage": "https://github.com/clifflu/tools.clifflu.net#readme",
   "dependencies": {
-    "aws-sdk": "^2.103.0",
+    "aws-sdk": "^2.440.0",
     "extend": "^3.0.1",
+    "moment": "^2.17.1",
     "nconf": "^0.8.4",
     "nconf-yaml": "^1.0.2",
-    "request": "^2.81.0",
-    "requests": "^0.2.2"
+    "pushover-notifications": "^0.2.4",
+    "request": "^2.88.0",
+    "sprintf-js": "^1.0.3",
+    "xml2js": "^0.4.17",
+    "yamljs": "^0.2.8"
+  },
+  "devDependencies": {
+    "jest": "^24.7.1"
   }
 }
