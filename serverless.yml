@@ -63,10 +63,10 @@ functions:
       - schedule: "cron(15 2-6 ? * SUN *)"
     environment:
       TZ: ${self:custom.config.timezone}
-      gasmon_stateTable_name: ${self:custom.config.cache.ddb.table}
-      gasmon_stateTable_key: ${self:custom.config.gasmon.cache.pk}
-      cred_pushover_userKey: ${self:custom.config.gasmon.pushover.userKey}
-      cred_pushover_appKey: ${self:custom.config.gasmon.pushover.appKey}
+      cache_table_name: ${self:custom.config.cache.ddb.table}
+      cache_table_key: ${self:custom.config.gasmon.cache.pk}
+      pushover_userKey: ${self:custom.config.gasmon.pushover.userKey}
+      pushover_appKey: ${self:custom.config.gasmon.pushover.appKey}
 
   ip:
     handler: handler.ip
