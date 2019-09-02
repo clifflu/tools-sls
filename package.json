@@ -21,27 +21,27 @@
   },
   "homepage": "https://github.com/clifflu/tools.clifflu.net#readme",
   "dependencies": {
-    "aws-sdk": "^2.440.0",
-    "extend": "^3.0.1",
+    "aws-sdk": "^2.521.0",
+    "extend": "^3.0.2",
     "moment": "^2.17.1",
-    "nconf": "^0.8.4",
+    "nconf": "^0.8.5",
     "nconf-yaml": "^1.0.2",
     "pushover-notifications": "^0.2.4",
     "request": "^2.88.0",
-    "sprintf-js": "^1.0.3",
-    "xml2js": "^0.4.17",
+    "sprintf-js": "^1.1.2",
+    "xml2js": "^0.4.21",
     "yamljs": "^0.2.8"
   },
   "devDependencies": {
-    "acorn": "^6.1.1",
+    "acorn": "^6.3.0",
     "eslint": "^5.16.0",
     "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.17.2",
-    "eslint-plugin-jest": "^22.4.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.16.0",
     "eslint-plugin-node": "^8.0.1",
-    "eslint-plugin-promise": "^4.1.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "jest": "^24.7.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "jest": "^24.9.0",
     "pre-commit": "^1.2.2"
   }
 }
