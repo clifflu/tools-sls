@@ -7,5 +7,5 @@ module.exports = {
   amiUpdate: ami.update,
   hello: require('./lib/hello/handler'),
   ip: require('./lib/ip/handler'),
-  gasmon: require('./lib/gasmon').handler
+  gasmon: require('./lib/gasmon/gasmon').handler,
 }

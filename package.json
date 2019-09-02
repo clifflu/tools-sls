@@ -22,13 +22,13 @@
   "homepage": "https://github.com/clifflu/tools.clifflu.net#readme",
   "dependencies": {
     "aws-sdk": "^2.521.0",
-    "extend": "^3.0.2",
     "moment": "^2.17.1",
     "nconf": "^0.8.5",
     "nconf-yaml": "^1.0.2",
     "pushover-notifications": "^0.2.4",
     "request": "^2.88.0",
     "sprintf-js": "^1.1.2",
+    "winston": "^3.2.1",
     "xml2js": "^0.4.21",
     "yamljs": "^0.2.8"
   },
